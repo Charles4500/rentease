@@ -1,4 +1,4 @@
-package com.server.rentease.tenants.entity;
+package com.server.rentease.users.entity;
 
 import com.server.rentease.common.entity.BaseEntity;
 import jakarta.persistence.*;
