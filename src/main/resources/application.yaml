@@ -6,6 +6,11 @@ spring:
     username: ${DATABASE_USER_NAME}
     password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${ISSUER_URI}
   jpa:
     hibernate:
       ddl-auto: none # Prevent JPA from overriding FlyWay schema management
@@ -15,7 +20,9 @@ spring:
     locations: classpath:db/migration
     validate-on-migrate: true
 
-
+app:
+  cors:
+    allowed-origins: ${ALLOWED_ORIGINS}
 
 kind: Application
 
