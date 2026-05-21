@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -30,12 +30,12 @@ public abstract class BaseEntity {
     @Column(nullable = false, unique = true, updatable = false)
     private UUID uuid;
 
-    @CreatedDate
     @Column(nullable = false, updatable = false, name = "created_date")
+    @CreationTimestamp
     private LocalDateTime createdDate;
 
-    @LastModifiedDate
     @Column(insertable = false, name = "modified_date")
+    @UpdateTimestamp
     private LocalDateTime lastModifiedDate;
 
 
